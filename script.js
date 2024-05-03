@@ -94,13 +94,27 @@ function flagCell(row, col) {
 }
 
 // This function is called once for each cell when rendering the game. The row and col of the current cell is
-// passed to the functionn
+// passed to the function
+
 function countAdjacentBombs(row, col) {
   //
   // TODO: Task 4 - Adjacent bombs are bombs in cells touching our cell (also diagonally). Implement this function
   //                so that it returns the count of adjacent cells with bombs in them. 
   //
-  return 1;
+    let count = 0;
+    for (let i = -1; i <= 1; i++) {
+        for (let j = -1; j <= 1; j++) {
+            let newRow = row + i;
+            let newCol = col + j;
+            if (newRow >= 0 && newRow < ROWS_COUNT && newCol >= 0 && newCol < COLS_COUNT) {
+                if (cells[newRow][newCol].isBomb) {
+                    count++;
+                    //console.log(newRow, newCol)
+                }
+            }
+        }
+    }
+    return count;
 }
 
 function getBombsCount() {
