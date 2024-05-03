@@ -76,7 +76,7 @@ function discoverCell(row, col) {
   //
   // TODO: Task 5 - Reveal cells when clicked.
   //
-  if(!cells[row][col].discovered) {
+  if(!cells[row][col].discovered && !cells[row][col].hasBeenFlagged) {
     cells[row][col].discovered = true; 
 
   //
@@ -110,10 +110,10 @@ function flagCell(row, col) {
   //
   if (cells) {
     cells[row][col].hasBeenFlagged = !cells[row][col].hasBeenFlagged;
+}
+}
 
-}
-}
-flagCell(row,col)
+
 // This function is called once for each cell when rendering the game. The row and col of the current cell is
 // passed to the function
 

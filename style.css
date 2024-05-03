@@ -27,6 +27,12 @@ header, #message {
     text-align: center;
 }
 
+section p {
+ text-align: center;
+ margin: 1rem 0;
+ font-weight: 500;
+}
+
 #playfield {
     display: block;
     background: lightgrey;
