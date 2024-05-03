@@ -142,7 +142,15 @@ function getBombsCount() {
   //
   // TODO: Task 9 - Implement stats: the counters currently always display 0, calculate and return the relevant values.
   //
-  return BOMBS_COUNT;
+  let bombsLeft = BOMBS_COUNT;
+  for (let row = 0; row < ROWS_COUNT; row++) {
+      for (let col = 0; col < COLS_COUNT; col++) {
+          if (cells[row][col].hasBeenFlagged) {
+            bombsLeft--;
+          }
+      }
+  }
+  return bombsLeft;
     }
 
 function getClearedCells() {
