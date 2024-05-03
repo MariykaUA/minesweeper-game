@@ -182,6 +182,20 @@ function checkForVictory() {
   // TODO: Task 10 - Implement victory. If the player has revealed as many cells as they must (every cell that isn't a
   //                 bomb), set variable victory to true.
   //
+let discoveredCells = 0;
+
+for (let row = 0; row < ROWS_COUNT; row++) {
+  for (let col = 0; col < COLS_COUNT; col++) {
+    if (cells[row][col].discovered && !cells[row][col].isBomb) {
+      discoveredCells++;
+    }
+  }
+}
+if (discoveredCells === ROWS_COUNT * COLS_COUNT - BOMBS_COUNT) {
+  victory = true;
+} else {
+  victory = false;
+}
 }
 
 //
