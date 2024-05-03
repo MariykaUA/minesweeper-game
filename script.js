@@ -1,7 +1,7 @@
 
 // Set this constant to true to debug the placement of bombs without
 // having to click on all cells to reveal them.
-const CHEAT_REVEAL_ALL = true;
+const CHEAT_REVEAL_ALL = false;
 
 const ROWS_COUNT = 12;
 const COLS_COUNT = 12;
@@ -76,6 +76,8 @@ function discoverCell(row, col) {
   //
   // TODO: Task 5 - Reveal cells when clicked.
   //
+  if(!cells[row][col].discovered) {
+    cells[row][col].discovered = true;  }
 
   //
   // TODO: Task 6 - Discover neighbor cells recursively, as long as there are no adjacent bombs to the current cell.
@@ -85,6 +87,8 @@ function discoverCell(row, col) {
   // TODO: Task 8 - Implement defeat. If the player "discovers" a bomb (clicks on it without holding shift), set the variable defeat to true.
   //
 }
+
+discoverCell(row, col)
 
 function flagCell(row, col) {
   //
